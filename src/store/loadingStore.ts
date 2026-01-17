@@ -1,7 +1,5 @@
 import { create } from 'zustand'
-import { devtools } from 'zustand/middleware'
 import EventEmitter from '@/utils/EventEmitter';
-import { act, useId } from 'react';
 
 type LoadingEvents = {
     change: { isLoading: boolean, isOverrideState: boolean } | null;
@@ -26,7 +24,7 @@ interface Store {
     }
 }
 
-export const loadingStore = create<Store>()(devtools((set, get) => ({
+export const loadingStore = create<Store>()((set, get) => ({
     loadingCount: 0,
     overrideState: null,
     localCounters: {},
@@ -92,5 +90,5 @@ export const loadingStore = create<Store>()(devtools((set, get) => ({
             return (get().localCounters[instanceId] ?? 0) > 0;
         },
     }
-})));
+}));
 
