@@ -1,5 +1,5 @@
 {
-  "name": "react-hook-loading-spinner",
+  "name": "@rokku-x/react-hook-loading-spinner",
   "version": "0.1.0",
   "description": "A lightweight and flexible React loading state hook library with built-in spinner components, global state management, and zero dependencies (except React and Zustand).",
   "main": "dist/index.cjs.js",

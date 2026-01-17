@@ -5,7 +5,7 @@ A lightweight and flexible React loading state hook library with built-in spinne
 ## Installation
 
 ```bash
-npm install react-hook-loading-spinner
+npm install @rokku-x/react-hook-loading-spinner
 ```
 
 ## Features
@@ -44,7 +44,7 @@ All measurements are extremely fast, with even 1000 operations completing in mil
 First, add the `LoadingRenderer` at the root of your application:
 
 ```tsx
-import { LoadingRenderer } from 'react-hook-loading-spinner';
+import { LoadingRenderer } from '@rokku-x/react-hook-loading-spinner';
 
 function App() {
   return (
@@ -59,7 +59,7 @@ function App() {
 ### 2. Use the Loading Hook
 
 ```tsx
-import { useLoading } from 'react-hook-loading-spinner';
+import { useLoading } from '@rokku-x/react-hook-loading-spinner';
 
 function MyComponent() {
   const { startLoading, stopLoading, isLoading } = useLoading();
