@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from "react";
-import useLoading from "@/hooks/useLoading";
+import useLoading from "@/mainLogic";
 
 export default function Loading({ isLoading = false }: { isLoading: boolean }) {
     const { startLoading, stopLoading } = useLoading();

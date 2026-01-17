@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import useLoading from '@/hooks/useLoading';
+import useLoading from '@/mainLogic';
 
 export const AnimationType = {
     Spin: 'spin',
