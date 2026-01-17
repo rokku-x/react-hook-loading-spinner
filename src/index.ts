@@ -5,4 +5,4 @@ export type { AnimationType as AnimationTypeType } from './components/LoadingRen
 export { default as Loading } from './components/Loading'
 export { default as LoadingRenderer } from './components/LoadingRenderer'
 export { default as EventEmitter } from './utils/EventEmitter'
-export { loadingEventTarget } from './mainLogic'
+export { loadingEventTarget } from './store/loadingStore'

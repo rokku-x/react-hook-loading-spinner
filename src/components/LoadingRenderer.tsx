@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import useLoading from '@/mainLogic';
+import { loadingStore } from '@/store/loadingStore';
 
 export const AnimationType = {
     Spin: 'spin',
@@ -54,7 +54,8 @@ export default function LoadingRenderer({
 }) {
     loadingComponent = loadingComponent ? loadingComponent : animationType === AnimationType.Spin ? LoadingCircle : LoadingPleaseWait;
     const randomId = useRef(Math.random().toString(36).substring(2, 6).replace(/[0-9]/g, ''));
-    const { isLoading } = useLoading();
+    const { loadingCount, overrideState } = loadingStore((state) => state);
+    const isLoading = overrideState ?? (loadingCount > 0);
     const dialogRef = useRef<HTMLDialogElement>(null);
 
     useEffect(() => {

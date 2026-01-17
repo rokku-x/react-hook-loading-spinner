@@ -26,7 +26,7 @@ interface Store {
     }
 }
 
-const loadingStore = create<Store>()(devtools((set, get) => ({
+export const loadingStore = create<Store>()(devtools((set, get) => ({
     loadingCount: 0,
     overrideState: null,
     localCounters: {},
@@ -94,40 +94,3 @@ const loadingStore = create<Store>()(devtools((set, get) => ({
     }
 })));
 
-export default function () {
-    const instanceId = useId();
-    const { actions } = loadingStore((state) => state);
-    const localStartLoading = () => {
-        actions.startLoading(instanceId);
-    }
-
-    const localStopLoading = () => {
-        if (actions.isLocalLoading(instanceId)) {
-            actions.stopLoading(instanceId);
-        }
-    }
-
-    const asyncUseLoading = async <R, _ extends any[]>(
-        asyncFunction: Promise<R>
-    ): Promise<R> => {
-        localStartLoading();
-        try {
-            return await asyncFunction;
-        } finally {
-            localStopLoading();
-        }
-    }
-
-    return {
-        overrideLoading: actions.overrideLoading,
-        startLoading: localStartLoading,
-        stopLoading: localStopLoading,
-        get isLocalLoading() {
-            return actions.isLocalLoading(instanceId);
-        },
-        asyncUseLoading,
-        get isLoading() {
-            return actions.isGlobalLoading();
-        }
-    };
-};
