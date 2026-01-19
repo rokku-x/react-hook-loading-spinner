@@ -20,7 +20,6 @@ npm install @rokku-x/react-hook-loading-spinner
 - 📡 **Event System** - Subscribe to loading state changes
 - ♿ **Accessibility** - Built-in inert attribute and scroll prevention
 - 📱 **Zero Dependencies** - Only requires React and Zustand
-- 🌐 **SSR-Compatible** - Hooks work in SSR; use `ssrLoading` helper in Server Components
 
 ## Bundle Size
 
@@ -397,27 +396,8 @@ function App() {
         loadingComponentScale={1.5}
       />
     </>
-
-### SSR Usage
-
-For Server Components, use the SSR-safe helper instead of the client hook:
-
-```tsx
-import { ssrLoading } from '@rokku-x/react-hook-loading-spinner';
-
-export default function ServerComponent() {
-  const { startLoading, stopLoading, isLoading } = ssrLoading();
-
-  startLoading();
-  // ...run your server-side work
-  stopLoading();
-
-  return <div>{isLoading ? 'Loading…' : 'Done'}</div>;
-}
-```
-
-For Client Components, continue using `useLoading` as shown above.
   );
+}
 }
 ```
 

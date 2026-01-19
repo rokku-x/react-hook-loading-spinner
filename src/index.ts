@@ -1,5 +1,4 @@
 export { default as useLoading } from './hooks/useLoading'
-export { default as ssrLoading } from './hooks/ssrLoading'
 export { LoadingCircle, LoadingPleaseWait, AnimationType } from './components/LoadingRenderer'
 export type { AnimationType as AnimationTypeType } from './components/LoadingRenderer'
 export { default as Loading } from './components/Loading'
